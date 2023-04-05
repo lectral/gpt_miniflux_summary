@@ -1,4 +1,4 @@
-FROM node-18
+FROM node:18
 
 WORKDIR /app
 
@@ -9,4 +9,4 @@ RUN yarn install --frozen-lockfile
 COPY . /app/
 
 ENV SUMMARY_MODE cron
-ENTRYPOINT [ "yarn tsx src/index.ts" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
