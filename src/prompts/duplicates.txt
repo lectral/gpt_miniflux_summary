@@ -1,0 +1,3 @@
+Remove duplicates news from list of bullets points:
+
+$JSON_CONTENT
