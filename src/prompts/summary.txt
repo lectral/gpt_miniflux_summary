@@ -1,6 +1,7 @@
 Below is json file containing latest news. Create summary containing key points of news. 
 Summary should be nested bullet point list (markdown) containing generated title as parent, and summarized key points as children
 There should be maximum of three bullet points. parent should start with "-", children should be indented. Last bullet point must be url in format Source: <url>
+Important: Use only polish language.
 
 Example:
 - **Something happened**
