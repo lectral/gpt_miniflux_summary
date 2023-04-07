@@ -24,6 +24,7 @@ async function main() {
   const summarizedEntries: SummarizedRssEntry[] = [];
   const promises: Promise<SummarizedRssEntry>[] = [];
   for (const entry of unreadEntries) {
+    entry.content = await minifluxService.getContent(entry);
     promises.push(
       entrySummarizer.summarize(entry).then((summary) => {
         summarizedEntries.push(summary);
@@ -38,6 +39,8 @@ async function main() {
   for (const summary of summarizedEntries) {
     await Discord.sendMessage(summary.summary + "\n");
   }
+  console.log("Summarized entries:");
+  console.log(summarizedEntries);
   minifluxService.markAsRead(unreadEntries);
   console.log("Run [OK]");
 }
