@@ -30,7 +30,11 @@ export class MinifluxService {
         entry.url,
         entry.content
       );
-      rssEntry.content = await this.getContent(rssEntry);
+      let obtainedContent = await this.getContent(rssEntry);
+      obtainedContent = RssEntry.process(obtainedContent);
+      if (obtainedContent.length > 0) {
+        rssEntry.content = obtainedContent;
+      }
       rssEntry.process();
       rssEntries.push(rssEntry);
     }

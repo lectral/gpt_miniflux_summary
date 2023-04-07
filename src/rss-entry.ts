@@ -14,10 +14,16 @@ export class RssEntry {
   }
 
   process() {
-    this.content = parse(this.content).textContent;
+    this.content = RssEntry.process(this.content);
+  }
+
+  static process(content: string) {
+    let processedContent: string;
+    processedContent = parse(content).textContent;
     // replace \t sign in content
-    this.content = this.content.replace(/\t/g, " ");
-    this.content = this.content.replace(/(\r\n|\n|\r)/gm, " ");
-    this.content = this.content.substring(0, 1000);
+    processedContent = processedContent.replace(/\t/g, " ");
+    processedContent = processedContent.replace(/(\r\n|\n|\r)/gm, " ");
+    processedContent = processedContent.substring(0, 1000);
+    return processedContent;
   }
 }
