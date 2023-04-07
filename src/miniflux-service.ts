@@ -37,9 +37,9 @@ export class MinifluxService {
   }
 
   async getContent(entry: RssEntry): Promise<string> {
-    return await this.apiClient.get<string>(
-      `/v1/entries/${entry.id}/fetch-content`
-    );
+    return await this.apiClient
+      .get<{ content: string }>(`/v1/entries/${entry.id}/fetch-content`)
+      .then((response) => response.content);
   }
 
   async markAsRead(entries: RssEntry[]): Promise<void> {
