@@ -24,12 +24,13 @@ export class MinifluxService {
     const rssEntries: RssEntry[] = [];
 
     for (const entry of minifluxResponse.entries) {
-      const rssEntry = new RssEntry(
+      let rssEntry = new RssEntry(
         entry.id,
         entry.title,
         entry.url,
         entry.content
       );
+      rssEntry.content = await this.getContent(rssEntry);
       rssEntry.process();
       rssEntries.push(rssEntry);
     }

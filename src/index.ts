@@ -24,7 +24,6 @@ async function main() {
   const summarizedEntries: SummarizedRssEntry[] = [];
   const promises: Promise<SummarizedRssEntry>[] = [];
   for (const entry of unreadEntries) {
-    entry.content = await minifluxService.getContent(entry);
     promises.push(
       entrySummarizer.summarize(entry).then((summary) => {
         summarizedEntries.push(summary);
