@@ -18,5 +18,6 @@ export class RssEntry {
     // replace \t sign in content
     this.content = this.content.replace(/\t/g, " ");
     this.content = this.content.replace(/(\r\n|\n|\r)/gm, " ");
+    this.content = this.content.substring(0, 1000);
   }
 }
