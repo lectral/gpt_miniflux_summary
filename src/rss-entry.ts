@@ -15,6 +15,8 @@ export class RssEntry {
 
   process() {
     this.content = parse(this.content).textContent;
+    // replace \t sign in content
+    this.content = this.content.replace(/\t/g, " ");
     this.content = this.content.replace(/(\r\n|\n|\r)/gm, " ");
   }
 }
