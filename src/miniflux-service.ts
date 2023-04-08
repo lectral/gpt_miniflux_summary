@@ -30,7 +30,10 @@ export class MinifluxService {
         entry.url,
         entry.content
       );
-      let obtainedContent = await this.getContent(rssEntry);
+      let obtainedContent = await this.getContent(rssEntry).catch((error) => {
+        console.error("Failed to obtain content for entry: " + rssEntry.id);
+        return "";
+      });
       obtainedContent = RssEntry.process(obtainedContent);
       if (obtainedContent.length > 0) {
         rssEntry.content = obtainedContent;
