@@ -46,20 +46,18 @@ async function main() {
 
 if (process.env.SUMMARY_MODE === "cron") {
   console.log(dayjs().format("DD-MM-YYYY HH:mm") + " Starting cron job");
-  main().then(() => {
-    const job = new cron.CronJob(
-      "0 */2 * * *",
-      function () {
-        console.log(dayjs().format("DD-MM-YYYY HH:mm") + " Executing cron job");
+  const job = new cron.CronJob(
+    "0 */2 * * *",
+    function () {
+      console.log(dayjs().format("DD-MM-YYYY HH:mm") + " Executing cron job");
 
-        main();
-      },
-      null,
-      true,
-      "Europe/Warsaw"
-    );
-    job.start();
-  });
+      main();
+    },
+    null,
+    true,
+    "Europe/Warsaw"
+  );
+  job.start();
 } else {
   main();
 }
