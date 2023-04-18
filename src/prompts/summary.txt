@@ -1,13 +1,11 @@
-Below is json file containing latest news. Create summary containing key points of news. 
-Summary should be nested bullet point list (markdown) containing generated title as parent, and summarized key points as children
-There should be maximum of three bullet points. parent should start with "-", children should be indented. Last bullet point must be url in format Source: <url>
-Important: Use only polish language.
+Create a summary containing key points of the news in the provided JSON file, in Polish. The summary should be a nested bullet point list (markdown) with a generated title as the parent and a maximum of three bullet points as children. The last bullet point should be the source URL in the format: Żródło: <url>.
 
 Example:
-- **Something happened**
-  - first keypoint summary of the news
-  - second keypoint summary of the news
-  - Source: https://source
+
+- Wydarzenie
+  - pierwsze podsumowanie kluczowego punktu wiadomości
+  - drugie podsumowanie kluczowego punktu wiadomości
+  - Źródło: https://source
 
 -- JSON FILE ---
 $CONTENT
