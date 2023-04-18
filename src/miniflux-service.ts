@@ -37,6 +37,7 @@ export class MinifluxService {
       obtainedContent = RssEntry.process(obtainedContent);
       if (obtainedContent.length > 0) {
         rssEntry.content = obtainedContent;
+        rssEntry.extendedContentObtained = true;
       }
       rssEntry.process();
       rssEntries.push(rssEntry);

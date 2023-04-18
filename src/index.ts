@@ -26,6 +26,9 @@ async function main() {
   for (const entry of unreadEntries) {
     promises.push(
       entrySummarizer.summarize(entry).then((summary) => {
+        if (!entry.extendedContentObtained) {
+          summary.summary += " 😔";
+        }
         summarizedEntries.push(summary);
         return summary;
       })
