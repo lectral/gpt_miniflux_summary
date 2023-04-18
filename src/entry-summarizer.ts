@@ -20,6 +20,7 @@ export class OpenAIApi {
   public async sendMessage(promptText: string): Promise<string> {
     try {
       const result = await this.chatGPTApi.sendMessage(promptText);
+      console.log("Open AI response", result);
       return result.text;
     } catch (error) {
       console.log("[OpenAIApi] Error:", error);

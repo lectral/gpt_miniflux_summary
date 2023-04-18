@@ -27,7 +27,7 @@ export class RssEntry {
       // replace \t sign in content
       processedContent = processedContent.replace(/\t/g, " ");
       processedContent = processedContent.replace(/(\r\n|\n|\r)/gm, " ");
-      processedContent = processedContent.substring(0, 1000);
+      processedContent = processedContent.substring(0, 2000);
       return processedContent;
     }
     return "";
