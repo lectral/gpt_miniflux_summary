@@ -2,10 +2,10 @@ Create a summary containing key points of the news in the provided JSON file, in
 
 Example:
 
-- Wydarzenie
+- ** Tytuł tutaj **
   - pierwsze podsumowanie kluczowego punktu wiadomości
   - drugie podsumowanie kluczowego punktu wiadomości
-  - Źródło: https://source
+  - * Źródło: https://source*
 
 -- JSON FILE ---
 $CONTENT
