@@ -7,6 +7,8 @@ import { ApiClient as MinifluxApiClient } from "./miniflux-api-client";
 import { OPENAI_API_KEY } from "./config";
 import * as cron from "cron";
 
+const UNREAD_ENTRIES_MIN = 4;
+
 async function main() {
   // Get unread entries from Miniflux
   const minifluxApiClient = new MinifluxApiClient();
@@ -14,6 +16,10 @@ async function main() {
   const unreadEntries = await minifluxService.getUnreadEntries();
   if (unreadEntries.length === 0) {
     console.log("No unread entries");
+    return;
+  }
+  if (unreadEntries.length < UNREAD_ENTRIES_MIN) {
+    console.log("Not enough unread entries");
     return;
   }
   // Init chatgpt api
